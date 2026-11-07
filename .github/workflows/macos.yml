@@ -1,0 +1,11 @@
+name: macos-smoke
+on:
+  workflow_dispatch:
+jobs:
+  smoke:
+    runs-on: macos
+    steps:
+      - name: platform
+        run: uname -a; sw_vers; echo "RUNNER_OS=$RUNNER_OS RUNNER_ARCH=$RUNNER_ARCH"
+      - name: github env
+        run: echo "workspace=$GITHUB_WORKSPACE"; echo "job=$GITHUB_JOB repo=$GITHUB_REPOSITORY"; pwd; ls
